@@ -10,7 +10,7 @@ router = APIRouter(
 
 @router.get("/", response_model=str)
 def get_recipe(
-    recipe_name: str
+    dish_name: str
 ):
 
     result = query_chatgpt(dish_name)
