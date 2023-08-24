@@ -9,7 +9,7 @@ router = APIRouter(
 )
 
 @router.get("/", response_model=str)
-def get_recipe(
+async def get_recipe(
     dish_name: str
 ):
 
