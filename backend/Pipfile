@@ -8,6 +8,9 @@ fastapi = {extras = ["all"], version = "*"}
 sqlalchemy = "*"
 passlib = "*"
 python-jose = "*"
+email-validator = "*"
+dotenv = "*"
+pydantic-settings = "*"
 
 [dev-packages]
 
