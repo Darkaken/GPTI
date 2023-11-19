@@ -1,10 +1,10 @@
-from typing import Annotated
-from fastapi import Depends, FastAPI
+
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from database.database import engine, Base
 
-from query.endpoints import router as queryRouter
+from router import Router, add_routers
 
 origins = [
     "http://localhost",
@@ -16,7 +16,9 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-app.include_router(queryRouter)
+router = Router()
+router = add_routers(router)
+app = router.include(app)
 
 app.add_middleware(
     CORSMiddleware,
